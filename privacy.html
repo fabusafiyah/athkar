@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athkar Privacy Policy</title>
+<style>
+  :root {
+    --ground: #f4f6f7;
+    --surface: #ffffff;
+    --surface-2: #eef2f3;
+    --ink: #101c22;
+    --ink-soft: #4b5b62;
+    --line: rgba(16,28,34,0.12);
+    --accent: #0088b0;
+    --accent-ink: #005a73;
+    --accent2: #d6006c;
+    --code-bg: #0d2733;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0b151a;
+      --surface: #101c22;
+      --surface-2: #16242b;
+      --ink: #eef3f4;
+      --ink-soft: #9db0b7;
+      --line: rgba(238,243,244,0.12);
+      --accent: #4fc3e0;
+      --accent-ink: #9fe3f4;
+      --accent2: #ff6fae;
+      --code-bg: #081418;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0b151a;
+    --surface: #101c22;
+    --surface-2: #16242b;
+    --ink: #eef3f4;
+    --ink-soft: #9db0b7;
+    --line: rgba(238,243,244,0.12);
+    --accent: #4fc3e0;
+    --accent-ink: #9fe3f4;
+    --accent2: #ff6fae;
+    --code-bg: #081418;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", "Noto Naskh Arabic", system-ui, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 20px 80px;
+  }
+
+  .shell { max-width: 760px; margin: 0 auto; }
+
+  header.hero {
+    padding: 56px 0 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: Georgia, "Iowan Old Style", "Source Serif 4", serif;
+    font-style: italic;
+    color: var(--accent-ink);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: Georgia, "Iowan Old Style", "Source Serif 4", serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    margin: 0 0 12px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .meta { color: var(--ink-soft); font-size: 0.92rem; }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  .langbar {
+    display: flex;
+    gap: 8px;
+    margin-top: 22px;
+  }
+  .langbar button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .langbar button[aria-pressed="true"] {
+    background: var(--accent);
+    color: #06202a;
+    border-color: var(--accent);
+  }
+  .langbar button:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+
+  section.doc { display: none; }
+  section.doc.active { display: block; }
+  section.doc[dir="rtl"] { text-align: right; }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 0 0 40px;
+  }
+  .toc-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+  .toc ol { margin: 0; padding-inline-start: 1.3em; columns: 2; column-gap: 24px; }
+  .toc li { margin-bottom: 6px; font-size: 0.93rem; break-inside: avoid; }
+  .toc a { color: var(--accent-ink); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  article h2 {
+    font-family: Georgia, "Iowan Old Style", "Source Serif 4", serif;
+    font-size: 1.45rem;
+    margin: 44px 0 14px;
+    padding-top: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  article h2 .num {
+    font-family: Georgia, serif;
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  article p { margin: 0 0 14px; max-width: 68ch; color: var(--ink); }
+  section.doc[dir="rtl"] article p { max-width: 68ch; }
+  article ul { margin: 0 0 16px; padding-inline-start: 1.4em; }
+  article li { margin-bottom: 8px; }
+  article strong { color: var(--ink); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .card.accent { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 6px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .pill b { color: var(--ink); font-weight: 600; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
+  .dot.off { background: var(--ink-soft); opacity: 0.5; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.92rem; }
+  caption { caption-side: top; text-align: inherit; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  th, td { text-align: inherit; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .twrap { overflow-x: auto; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--accent-ink); }
+
+  @media (max-width: 560px) {
+    .toc ol { columns: 1; }
+    header.hero { padding-top: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header class="hero">
+    <p class="eyebrow">أذكار · Athkar</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: <b>August 24, 2026</b> &nbsp;·&nbsp; Available on Android and iOS &nbsp;·&nbsp; Contact: <b>fabusafiyah@gmail.com</b></p>
+    <div class="langbar" role="tablist" aria-label="Language">
+      <button type="button" id="btn-en" role="tab" aria-pressed="true">English</button>
+      <button type="button" id="btn-ar" role="tab" aria-pressed="false">العربية</button>
+    </div>
+  </header>
+
+  <!-- ENGLISH -->
+  <section class="doc active" id="doc-en" dir="ltr" lang="en">
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">On this page</p>
+      <ol>
+        <li><a href="#en-1">What Athkar is</a></li>
+        <li><a href="#en-2">Information we access</a></li>
+        <li><a href="#en-3">What we never collect</a></li>
+        <li><a href="#en-4">Notifications</a></li>
+        <li><a href="#en-5">Permissions</a></li>
+        <li><a href="#en-6">Data retention &amp; deletion</a></li>
+        <li><a href="#en-7">Children's privacy</a></li>
+        <li><a href="#en-8">Changes to this policy</a></li>
+        <li><a href="#en-9">Contact</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <h2 id="en-1"><span class="num">1</span> What Athkar is</h2>
+      <p>Athkar is a personal Islamic companion app: Quran reading, daily athkar (remembrance texts), prayer times, a Qibla compass, and Hajj/Umrah guidance. It is built and maintained by an independent developer, reachable at <a href="mailto:fabusafiyah@gmail.com">fabusafiyah@gmail.com</a>.</p>
+      <div class="card accent">
+        <p style="margin:0;">Athkar has <strong>no backend server</strong>. There is nothing for your data to be sent to — everything the app needs, it computes and stores on your own device.</p>
+      </div>
+
+      <h2 id="en-2"><span class="num">2</span> Information we access</h2>
+      <div class="twrap">
+      <table>
+        <caption>What the app reads, and why</caption>
+        <thead><tr><th>Data</th><th>Purpose</th><th>Where it goes</th></tr></thead>
+        <tbody>
+          <tr><td>Device location (GPS)</td><td>Calculate prayer times and point the Qibla compass for where you are</td><td>Stays on your device; used only in-app, in memory</td></tr>
+          <tr><td>Approximate city name</td><td>Show a human-readable place name instead of raw coordinates</td><td>Resolved by your device's own operating-system geocoding service (e.g. Google Play services on Android, Apple's location services on iOS), which may itself contact its provider to translate coordinates into a name — Athkar does not run or relay this itself</td></tr>
+          <tr><td>App preferences (language, theme), Quran bookmarks, dhikr counters, prayer-alert toggles</td><td>Remember your settings and progress between sessions</td><td>Local on-device storage only — never transmitted anywhere</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2 id="en-3"><span class="num">3</span> What we never collect</h2>
+      <div class="pill-row">
+        <span class="pill"><span class="dot off"></span><b>No account or sign-in</b></span>
+        <span class="pill"><span class="dot off"></span><b>No analytics</b></span>
+        <span class="pill"><span class="dot off"></span><b>No advertising or ad IDs</b></span>
+        <span class="pill"><span class="dot off"></span><b>No crash reporting</b></span>
+        <span class="pill"><span class="dot off"></span><b>No data sold or shared with third parties</b></span>
+      </div>
+      <p>The app was built this way deliberately, not as a policy afterthought — there is no third-party SDK in Athkar capable of collecting or transmitting personal data.</p>
+
+      <h2 id="en-4"><span class="num">4</span> Notifications</h2>
+      <p>Prayer-time and iqama reminders are scheduled <strong>locally on your device</strong> using its operating system's notification scheduler. No push-notification server is involved, and no notification content is sent to or received from anywhere outside your phone.</p>
+
+      <h2 id="en-5"><span class="num">5</span> Permissions</h2>
+      <div class="twrap">
+      <table>
+        <caption>Permissions Athkar requests</caption>
+        <thead><tr><th>Permission</th><th>Why Athkar asks</th></tr></thead>
+        <tbody>
+          <tr><td>Location (fine/coarse)</td><td>Qibla direction and prayer-time calculation for your position</td></tr>
+          <tr><td>Notifications</td><td>Adhan and iqama reminders you turn on in the Prayer tab</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Every permission is optional: denying it simply falls back to Mecca-based defaults with a visible notice in the app, rather than blocking use of the rest of the app.</p>
+
+      <h2 id="en-6"><span class="num">6</span> Data retention &amp; deletion</h2>
+      <p>Because everything is stored locally, deleting your data is as simple as using your phone's own controls:</p>
+      <ul>
+        <li>Revoke location or notification permission any time from your device's app permission settings.</li>
+        <li>Clear saved preferences and bookmarks by clearing the app's storage/data from your device's app settings.</li>
+        <li>Uninstalling the app removes everything Athkar ever stored.</li>
+      </ul>
+
+      <h2 id="en-7"><span class="num">7</span> Children's privacy</h2>
+      <p>Athkar does not knowingly collect personal information from anyone, of any age — the app simply has no mechanism to collect or transmit it. It is suitable for a general audience including children, under the same on-device-only data handling described above.</p>
+
+      <h2 id="en-8"><span class="num">8</span> Changes to this policy</h2>
+      <p>If this policy changes, the updated version will be published at this same address with a revised effective date above. Continued use of the app after a change constitutes acceptance of the update.</p>
+
+      <h2 id="en-9"><span class="num">9</span> Contact</h2>
+      <p>Questions about this policy or how Athkar handles data can be sent to <a href="mailto:fabusafiyah@gmail.com">fabusafiyah@gmail.com</a>.</p>
+    </article>
+  </section>
+
+  <!-- ARABIC -->
+  <section class="doc" id="doc-ar" dir="rtl" lang="ar">
+    <nav class="toc" aria-label="جدول المحتويات">
+      <p class="toc-title">في هذه الصفحة</p>
+      <ol>
+        <li><a href="#ar-1">ما هو تطبيق أذكار</a></li>
+        <li><a href="#ar-2">المعلومات التي نصل إليها</a></li>
+        <li><a href="#ar-3">ما لا نجمعه إطلاقًا</a></li>
+        <li><a href="#ar-4">الإشعارات</a></li>
+        <li><a href="#ar-5">الأذونات</a></li>
+        <li><a href="#ar-6">الاحتفاظ بالبيانات وحذفها</a></li>
+        <li><a href="#ar-7">خصوصية الأطفال</a></li>
+        <li><a href="#ar-8">التغييرات على هذه السياسة</a></li>
+        <li><a href="#ar-9">التواصل معنا</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <h2 id="ar-1"><span class="num">١</span> ما هو تطبيق أذكار</h2>
+      <p>أذكار تطبيق إسلامي شخصي يجمع قراءة القرآن الكريم، والأذكار اليومية، وأوقات الصلاة، وبوصلة القبلة، وإرشادات الحج والعمرة. يقوم بتطويره وصيانته مطوّر مستقل، ويمكن التواصل معه عبر <a href="mailto:fabusafiyah@gmail.com">fabusafiyah@gmail.com</a>.</p>
+      <div class="card accent">
+        <p style="margin:0;">تطبيق أذكار <strong>لا يملك أي خادم خلفي (backend)</strong>. لا توجد وجهة تُرسَل إليها بياناتك؛ فكل ما يحتاجه التطبيق يُحسب ويُخزَّن على جهازك أنت فقط.</p>
+      </div>
+
+      <h2 id="ar-2"><span class="num">٢</span> المعلومات التي نصل إليها</h2>
+      <div class="twrap">
+      <table>
+        <caption>ما يقرأه التطبيق، ولماذا</caption>
+        <thead><tr><th>البيانات</th><th>الغرض</th><th>أين تذهب</th></tr></thead>
+        <tbody>
+          <tr><td>موقع الجهاز (GPS)</td><td>حساب أوقات الصلاة وتوجيه بوصلة القبلة بحسب موقعك</td><td>تبقى على جهازك؛ تُستخدم داخل التطبيق فقط وفي الذاكرة المؤقتة</td></tr>
+          <tr><td>اسم المدينة التقريبي</td><td>عرض اسم مكان مفهوم بدلًا من الإحداثيات الخام</td><td>يُحدَّد عبر خدمة تحديد المواقع الخاصة بنظام تشغيل جهازك (مثل خدمات Google Play على أندرويد، أو خدمات الموقع من آبل على iOS)، والتي قد تتصل بمزوّدها لترجمة الإحداثيات إلى اسم — التطبيق نفسه لا يشغّل أو ينقل هذه العملية</td></tr>
+          <tr><td>تفضيلات التطبيق (اللغة، المظهر)، علامات القرآن المرجعية، عدّادات الذكر، تفعيل تنبيهات الصلاة</td><td>حفظ إعداداتك وتقدّمك بين الجلسات</td><td>تخزين محلي على الجهاز فقط — لا يُرسَل إلى أي مكان أبدًا</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2 id="ar-3"><span class="num">٣</span> ما لا نجمعه إطلاقًا</h2>
+      <div class="pill-row">
+        <span class="pill"><span class="dot off"></span><b>لا حساب أو تسجيل دخول</b></span>
+        <span class="pill"><span class="dot off"></span><b>لا تحليلات استخدام</b></span>
+        <span class="pill"><span class="dot off"></span><b>لا إعلانات أو معرّفات إعلانية</b></span>
+        <span class="pill"><span class="dot off"></span><b>لا تقارير أعطال</b></span>
+        <span class="pill"><span class="dot off"></span><b>لا بيع أو مشاركة بيانات مع أي طرف ثالث</b></span>
+      </div>
+      <p>بُني التطبيق على هذا الأساس عن قصد، وليس كإجراء شكلي لاحق — فلا توجد داخل أذكار أي حزمة برمجية خارجية (SDK) قادرة على جمع بياناتك الشخصية أو نقلها.</p>
+
+      <h2 id="ar-4"><span class="num">٤</span> الإشعارات</h2>
+      <p>تُجدوَل تذكيرات الأذان والإقامة <strong>محليًا على جهازك</strong> عبر مجدول الإشعارات الخاص بنظام التشغيل. لا يوجد أي خادم إشعارات فوري (push) متدخّل، ولا يُرسَل أو يُستقبَل أي محتوى إشعار من خارج هاتفك أو إليه.</p>
+
+      <h2 id="ar-5"><span class="num">٥</span> الأذونات</h2>
+      <div class="twrap">
+      <table>
+        <caption>الأذونات التي يطلبها أذكار</caption>
+        <thead><tr><th>الإذن</th><th>سبب الطلب</th></tr></thead>
+        <tbody>
+          <tr><td>الموقع (دقيق/تقريبي)</td><td>اتجاه القبلة وحساب أوقات الصلاة بحسب موقعك</td></tr>
+          <tr><td>الإشعارات</td><td>تذكيرات الأذان والإقامة التي تفعّلها من تبويب الصلاة</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>كل إذن اختياري: رفضه يجعل التطبيق يعتمد افتراضيًا على مكة المكرمة مع تنبيه واضح داخل التطبيق، دون أن يمنعك من استخدام بقية أقسامه.</p>
+
+      <h2 id="ar-6"><span class="num">٦</span> الاحتفاظ بالبيانات وحذفها</h2>
+      <p>بما أن كل شيء يُخزَّن محليًا، فحذف بياناتك بسيط بقدر استخدام إعدادات هاتفك نفسه:</p>
+      <ul>
+        <li>يمكنك سحب إذن الموقع أو الإشعارات في أي وقت من إعدادات أذونات التطبيق على جهازك.</li>
+        <li>يمكنك مسح التفضيلات المحفوظة والعلامات المرجعية من خلال مسح بيانات التطبيق من إعدادات جهازك.</li>
+        <li>حذف التطبيق يزيل كل ما خزّنه أذكار على الإطلاق.</li>
+      </ul>
+
+      <h2 id="ar-7"><span class="num">٧</span> خصوصية الأطفال</h2>
+      <p>لا يجمع أذكار عن قصد أي معلومات شخصية من أي مستخدم أيًا كان عمره — فالتطبيق ببساطة لا يملك أي آلية لجمع البيانات أو نقلها. وهو مناسب لجميع الفئات، بما فيها الأطفال، ضمن نفس سياسة التعامل مع البيانات محليًا فقط الموضحة أعلاه.</p>
+
+      <h2 id="ar-8"><span class="num">٨</span> التغييرات على هذه السياسة</h2>
+      <p>عند تحديث هذه السياسة، سيُنشر الإصدار الجديد على نفس هذا الرابط مع تحديث تاريخ السريان أعلاه. استمرار استخدام التطبيق بعد أي تحديث يُعد قبولًا له.</p>
+
+      <h2 id="ar-9"><span class="num">٩</span> التواصل معنا</h2>
+      <p>لأي استفسار حول هذه السياسة أو طريقة تعامل أذكار مع البيانات، يمكن التواصل عبر <a href="mailto:fabusafiyah@gmail.com">fabusafiyah@gmail.com</a>.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>Athkar · <span dir="rtl">أذكار</span> — this policy covers the Athkar mobile app on both Android and iOS.</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var btnEn = document.getElementById('btn-en');
+    var btnAr = document.getElementById('btn-ar');
+    var docEn = document.getElementById('doc-en');
+    var docAr = document.getElementById('doc-ar');
+
+    function show(lang) {
+      var enActive = lang === 'en';
+      docEn.classList.toggle('active', enActive);
+      docAr.classList.toggle('active', !enActive);
+      btnEn.setAttribute('aria-pressed', String(enActive));
+      btnAr.setAttribute('aria-pressed', String(!enActive));
+      document.documentElement.lang = lang;
+    }
+
+    btnEn.addEventListener('click', function () { show('en'); });
+    btnAr.addEventListener('click', function () { show('ar'); });
+  })();
+</script>
+
+</body>
+</html>
